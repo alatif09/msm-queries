@@ -1,0 +1,29 @@
+<!-- app/views/movies/index.html.erb -->
+<h1>List of all movies</h1>
+
+<hr>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Director</th>
+      <th></th> <!-- This empty header corresponds to the 'Show details' link column -->
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.id %></td>
+        <td><%= image_tag(movie.image, style: "width:250px;") if movie.image.present? %></td>
+        <td><%= movie.title %></td>
+        <td><%= movie.year %></td>
+        <td><%= movie.director.name if movie.director.present? %></td>
+        <td><%= link_to 'Show details', movie_path(movie) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

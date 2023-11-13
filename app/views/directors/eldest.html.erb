@@ -1,0 +1,12 @@
+<!-- app/views/directors/eldest.html.erb -->
+
+
+<h1>Eldest director</h1>
+
+<% if @eldest_director %>
+  <p>
+    The eldest director in our dataset right now is 
+    <%= link_to @eldest_director.name, director_path(@eldest_director) %>,
+    born on <%= @eldest_director.dob.strftime("%B %d, %Y") %>.
+  </p>
+<% end %>

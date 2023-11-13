@@ -1,0 +1,27 @@
+<!-- app/views/directors/index.html.erb -->
+<h1>List of all directors</h1>
+
+<hr>
+
+<table border="1">
+  <% @directors.each do |director| %>
+    <tr>
+      <td>
+        <%= director.id %>
+      </td>
+      <td>
+        <%= image_tag(director.image, style: "width:250px;") if director.image.present? %>
+      </td>
+      <td>
+        <%= director.name %>
+      </td>
+      <td>
+        <%= director.dob %>
+      </td>
+      <td>
+        <%= link_to 'Show details', director_path(director) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+

@@ -1,0 +1,27 @@
+<!-- app/views/actors/index.html.erb -->
+<h1>List of all actors</h1>
+
+<hr>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Image</th>
+      <th>Name</th>
+      <th>DOB</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @actors.each do |actor| %>
+      <tr>
+        <td><%= actor.id %></td>
+        <td><%= image_tag(actor.image, style: "width:250px;") if actor.image.present? %></td>
+        <td><%= actor.name %></td>
+        <td><%= actor.dob %></td>
+        <td><%= link_to 'Show details', actor_path(actor) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
